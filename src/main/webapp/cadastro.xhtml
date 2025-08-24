@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>Sistema de Cadastro</title>
+</head>
+<body>
+<h1>Cadastro de Usuários</h1>
+
+<h:form>
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Nome:" />
+        <h:inputText value="#{usuarioBean.usuario.nome}" required="true"/>
+
+        <h:outputLabel value="Email:" />
+        <h:inputText value="#{usuarioBean.usuario.email}" required="true"/>
+
+        <h:outputLabel value="Telefone:" />
+        <h:inputText value="#{usuarioBean.usuario.telefone}"/>
+
+        <h:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}"/>
+    </h:panelGrid>
+</h:form>
+
+<h2>Usuários Cadastrados</h2>
+<h:dataTable value="#{usuarioBean.usuarios}" var="user">
+    <h:column>
+        <f:facet name="header">ID</f:facet>
+        #{user.id}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Nome</f:facet>
+        #{user.nome}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Email</f:facet>
+        #{user.email}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Telefone</f:facet>
+        #{user.telefone}
+    </h:column>
+</h:dataTable>
+</body>
+</html>
